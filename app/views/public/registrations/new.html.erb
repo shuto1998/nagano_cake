@@ -125,12 +125,9 @@
         <%= f.submit "新規登録" , class: "btn btn-success" , class: "w-100" %>
       </div>
       <div class="col-lg-5"></div>
-  </div>
-
     </div>
-
-    <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
   </div>
+  <h2>既に登録済みの方</h2>
+
+<p><%= link_to "こちら",new_customer_session_path %>からログインしてください。</p>
 <% end %>
