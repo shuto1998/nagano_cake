@@ -1,2 +1,56 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<p>商品詳細</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      <% if @item.image.attached? %>
+      <%= image_tag @item.image, size: "300x300" %>
+       <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+    </div>
+    <div class="col-lg-2">
+      <p>商品名</p>
+    </div>
+    <div class="col-lg-5">
+      <%= @item.name %>
+    </div>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+     <p>商品説明</p>
+    </div>
+    <div class="col-lg-5">
+       <%= @item.introduction %>
+    </div>
+     <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+     <p>ジャンル</p>
+    </div>
+    <div class="col-lg-5">
+       <%= @item.genre.name %>
+    </div>
+     <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+     <p>税抜き価格</p>
+    </div>
+    <div class="col-lg-5">
+       <%= @item.price %>
+    </div>
+     <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+     <p>販売ステータス</p>
+    </div>
+    <div class="col-lg-5">
+       <% if @item.is_active == true %>
+       <h5>販売中</h5>
+       <% else %>
+       <h5>販売停止中</h5>
+       <% end %>
+    </div>
+     <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+     <%= link_to "編集する",edit_admin_item_path(@item.id) ,class: 'btn btn-success' %>
+    </div>
+    <div class="col-lg-5">
+    </div>
+  </div>
+</div>
