@@ -1,26 +1,45 @@
 <h5>商品一覧</h5>
 <div class="container">
     <div class="row">
-<table>
+<%=link_to "新規登録", new_admin_item_path %>
+
+
+
+<table class="table table-striped">
+
     <tr>
-        <div class="col-lg-1">
+
         <th>商品ID</th>
-        </div>
-        <div class="col-lg-4">
+
         <th>商品名</th>
-        </div>
-        <div class="col-lg-2">
+
+
         <th>税抜き価格</th>
-        </div>
-        <div class="col-lg-4">
+
+
         <th>ジャンル</th>
-        </div>
-        <div class="col-lg-2">
+
+
         <th>ステータス</th>
-        </div>
+
+
+
     </tr>
 
-
+<% @items.each do |item| %>
+<tr>
+    <td><%= item.id %></td>
+    <td><%= item.name %></td>
+    <td><%= item.price %></td>
+    <td><%= item.genre.name %></td>
+    <td><% if item.is_active == true %>
+       販売中
+       <% else %>
+       販売停止中
+       <% end %>
+    </td>
+</tr>
+<% end %>
 </table>
 </div>
 </div>
