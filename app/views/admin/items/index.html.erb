@@ -1,9 +1,15 @@
 <h5>商品一覧</h5>
 <div class="container">
     <div class="row">
-<%=link_to "新規登録", new_admin_item_path %>
 
+<div class="col-lg-11"></div>
+<div class="col-lg-1">
+<%=link_to new_admin_item_path do %>
 
+<i class="fas fa-plus-circle fa-2x"></i>
+
+<% end %>
+</div>
 
 <table class="table table-striped">
 
