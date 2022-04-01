@@ -19,10 +19,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
    resources :genres, only: [:new,:create,:index,:edit,:update]
    resources :items,only:[:new,:index,:show,:edit,:update,:create]
   end
-  
+
   namespace :public do
     get 'homes/top'
     get 'homes/about'
+    get 'customers/my_page' => 'customers#show'
+    # get 'items' => 'admin::items#index'
     resources :customers,only:[:show,:edit]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
