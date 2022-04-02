@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'customers/my_page' => 'customers#show'
     # get 'items' => 'admin::items#index'
-    resource :customers,only:[:edit]
+    resource :customers,only:[:edit,:update]
   end
 # 顧客用
 # URL /customers/sign_in ...

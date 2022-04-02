@@ -33,7 +33,10 @@
       </li>
 
     <% elsif customer_signed_in? %>
-      <li class="nav-item">
+      <li class="px-2 py-2 mx-4 border">
+       <%= link_to "マイページ",public_customers_my_page_path %>
+      </li>
+      <li class="px-2 py-2 mx-4 border">
        <%= link_to "ログアウト",destroy_customer_session_path, method: :delete %>
       </li>
 
