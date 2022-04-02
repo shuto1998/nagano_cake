@@ -34,11 +34,11 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password])
       ## 【処理内容3】
-    if @customer.is_deleted == true 
-      redirect_to new_customer_registration_path
-    elsif @customer.is_deleted == false
-      redirect_to customer_session_path
-    end      
+      if @customer.is_deleted == true
+        redirect_to new_customer_registration_path
+      # elsif @customer.is_deleted == false
+      #   redirect_to public_customers_my_page_path
+      end
     end
   end
 end
