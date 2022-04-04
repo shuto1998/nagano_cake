@@ -31,7 +31,8 @@
         </div>
       <!--</div>-->
       <%= form_with model: @cart_items,url:public_cart_items_path,method: :post do |f| %>
-      <%= f.hidden_field :name, :value "楽しいRuby" %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.select :amount, *[1..10] %>
       <%= f.submit 'カートに入れる' %>
       <% end %>
   </div>
