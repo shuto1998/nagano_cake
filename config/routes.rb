@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get 'customers/my_page' => 'customers#show'
     # get 'items' => 'admin::items#index'
     resource :customers,only:[:edit,:update]
+    resources :items,only:[:index,:show]
+    resources :cart_items,only:[:index,:create,:new]
   end
 # 顧客用
 # URL /customers/sign_in ...

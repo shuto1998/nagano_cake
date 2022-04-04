@@ -9,12 +9,9 @@
 <% end %>
 
 <!--ジャンル一覧-->
-<h4>ジャンル</h4>
+<table class = "table">
+<tr class="table-active"><th>ジャンル</th><td class="table-active"></td></tr>
 <% @genres.each do |genre| %>
-<table>
-<tr>
-    <th><%= genre.name %></th>
-    <th><%= link_to "編集する",edit_admin_genre_path(genre) %></th>
-</tr>
-</table>
+<tr><td><%= genre.name %></td><td><%= link_to "編集する",edit_admin_genre_path(genre) %></td></tr>
 <% end %>
+</table>

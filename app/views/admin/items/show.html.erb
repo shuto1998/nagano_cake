@@ -34,6 +34,7 @@
     </div>
     <div class="col-lg-5">
        <%= @item.price %>
+       <p>￥<%= @item.add_tax_price.to_s(:dalimited) %>（税込み価格）</p>
     </div>
      <div class="col-lg-5"></div>
     <div class="col-lg-2">
