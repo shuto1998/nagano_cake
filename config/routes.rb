@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     # get 'items' => 'admin::items#index'
     resource :customers,only:[:edit,:update]
     resources :items,only:[:index,:show]
-    resources :cart_items,only:[:index,:create,:new]
+    resources :cart_items,only:[:index,:create,:new,:destroy,:update]
   end
 # 顧客用
 # URL /customers/sign_in ...
@@ -28,6 +28,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
  namespace :admin do
    resources :genres, only: [:new,:create,:index,:edit,:update]
    resources :items,only:[:new,:index,:show,:edit,:update,:create]
+   resources :customers,only:[:show,:index,:edit,:update]
   end
 
 
