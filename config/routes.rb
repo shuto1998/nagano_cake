@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
 
-
+  # scope module: :public do
   namespace :public do
+
     get 'homes/top'
     get 'homes/about'
     get 'customers/my_page' => 'customers#show'
     # get 'items' => 'admin::items#index'
     resource :customers,only:[:edit,:update]
     resources :items,only:[:index,:show]
-    resources :cart_items,only:[:index,:create,:new,:destroy,:update]
+    resources :cart_items,only:[:index,:create,:new,:destroy,:update] do
+     collection do
+        delete 'destroy_all'
+      end
+    end
+
   end
 # 顧客用
 # URL /customers/sign_in ...
