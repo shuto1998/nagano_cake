@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
    scope module: :public do
-  
+
     get 'homes/top'
     get 'homes/about'
     get 'customers/my_page' => 'customers#show'
