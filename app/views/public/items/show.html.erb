@@ -30,7 +30,7 @@
         <p>￥<%= @item.add_tax_price.to_s(:dalimited) %>（税込み価格）</p>
         </div>
       <!--</div>-->
-      <%= form_with model: @cart_items,url:public_cart_items_path,method: :post do |f| %>
+      <%= form_with model: @cart_items,url:cart_items_path,method: :post do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <%= f.select :amount, *[1..10] %>
       <%= f.submit 'カートに入れる' %>

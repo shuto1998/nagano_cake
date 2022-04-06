@@ -1,6 +1,6 @@
 <h5>商品一覧</h5>
 <% @items.each do |item| %>
 <%= image_tag item.image, size: "200x200" %>
-<b><%= link_to item.name, public_item_path(item.id) %></b>
+<b><%= link_to item.name, item_path(item.id) %></b>
 <b>¥<%= item.price %></b>
 <% end %>

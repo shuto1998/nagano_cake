@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
 
     customer.update(customer_params)
 
-    redirect_to public_customers_my_page_path(current_customer)
+    redirect_to customers_my_page_path(current_customer)
   end
 
 

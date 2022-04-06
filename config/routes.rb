@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  # scope module: :public do
   namespace :public do
-
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+   scope module: :public do
+  
     get 'homes/top'
     get 'homes/about'
     get 'customers/my_page' => 'customers#show'
@@ -13,7 +16,14 @@ Rails.application.routes.draw do
      collection do
         delete 'destroy_all'
       end
+     end
+    resources :orders,only:[:index,:show,:new,:create] do
+     collection do
+        post 'comfirm'
+        get 'complete'
+      end
     end
+    resources :addresses,only:[:index,:edit,:update,:create,:new,:destroy]
 
   end
 # 顧客用
