@@ -1,0 +1,34 @@
+<h5>注文情報確認</h5>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込み）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+      <% @cart_items.each do |cart_item| %>
+       <tr>
+          <td><% if cart_item.item.image.attached? %>
+              <%= image_tag cart_item.item.image, size: "80x80" %>
+              <% else %>
+              <%= image_tag 'no_image', size: "80x80" %>
+              <% end %>
+              <%= cart_item.item.name %></td>
+          <td><%= cart_item.item.add_tax_price %></td>
+
+
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.item.add_tax_price* cart_item.amount %></td>
+          <td><% cart_item.item.add_tax_price* cart_item.amount %></td>
+        </tr>
+      <% end %>
+
+
+      <%= @order.address %>
