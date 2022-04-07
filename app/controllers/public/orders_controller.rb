@@ -4,28 +4,32 @@ class Public::OrdersController < ApplicationController
 
   def index
   end
-
+#購入情報の入力画面を作成する
   def new
-    # @orders = Order.all
     @order = Order.new
-
-    # @customer.postal_code = current_customer.postal_code
-    # @customer.address = current_customer.address
-    # @customer.name = current_customer.first_name + current_customer.last_name
-
   end
-
+#購入を確定した際に使うアクション
+#Orderに情報を保存する
   def create
-    
-    order = Order.new(order_params)
-    order.save
-    OrderDetail.create!(
-     customer_id: 1,
-     order_id: 1,
-  )
+    cart_item = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    if @order.save
+      cart_item.each do |cart|
+
+      #order_detailsにもデータを保存するためのコード
+      order_details = OrderDetail.new
+      order_details.order_id = @order.id
+      order_details.item_id = cart.item_id
+      order_details.price = cart.item.price
+      order_details.amount = cart_item.amount
+      order_details.save
+    end
+    redirect_to complete_orders_path
     cart_item.destroy_all
-    redirect_to "complete_orders_path"
- 
+    else
+      @order = Order.new(order_params)
+      render :new_cart_item_path
+    end
   end
 
   def comfirm
@@ -34,7 +38,7 @@ class Public::OrdersController < ApplicationController
     @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
 
     @order = Order.new(order_params)
-   
+
 
     if params[:order][:select_address] == "0"
       #@orderの住所・郵便番号・名前は現在ログインしているcustomreの物  であると定義するコード
