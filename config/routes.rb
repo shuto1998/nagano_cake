@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
    scope module: :public do
 
-    get 'homes/top'
-    get 'homes/about'
+    get '/' => 'homes#top'
+    get '/about' => 'homes#about'
     get 'customers/my_page' => 'customers#show'
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     # get 'items' => 'admin::items#index'
     resource :customers,only:[:edit,:update]
     resources :items,only:[:index,:show]

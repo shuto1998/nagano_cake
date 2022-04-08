@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @ordes = Order.all
   end
 #購入情報の入力画面を作成する
   def new
@@ -24,7 +25,7 @@ class Public::OrdersController < ApplicationController
       order_details.amount = cart_item.amount
       order_details.save
     end
-    redirect_to complete_orders_path
+    redirect_to complete_orders_path98uhbnj67m
     cart_item.destroy_all
     else
       @order = Order.new(order_params)

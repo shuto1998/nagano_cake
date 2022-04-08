@@ -4,6 +4,7 @@
         <div class="col-lg-2">
             <p>ジャンル検索</p>
         </div>
+        <div class="jumbotron" image_tag'background_image'>
         <div class="col-lg-10">
             <p>ようこそ、ながのCAKEへ！<br>
             このサイトはケーキ販売のECサイトになります<br>
@@ -11,8 +12,26 @@
             購入には会員登録が必要になります。
             </p>
         </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10"><p class="font-weight-bold">新着商品</p></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10">
+                <% @items.each do |item| %>
+                <%= image_tag item.image, size: "100x100" %>
+                <div><%= link_to item.name, item_path(item.id) %></div>
+                <div>¥<%= item.price %></div>
+                <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2"><%= link_to "全ての商品を見る>",items_path %></div>
     </div>
 </div>
-<p>新着商品</p>
-
+<
 
