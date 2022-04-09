@@ -15,17 +15,17 @@ class Public::OrdersController < ApplicationController
     cart_item = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
     if @order.save
-      cart_item.each do |cart|
+      cart_item.each do |cart_item|
 
       #order_detailsにもデータを保存するためのコード
       order_details = OrderDetail.new
       order_details.order_id = @order.id
-      order_details.item_id = cart.item_id
-      order_details.price = cart.item.price
+      order_details.item_id = cart_item.item_id
+      order_details.price = cart_item.item.price
       order_details.amount = cart_item.amount
       order_details.save
     end
-    redirect_to complete_orders_path98uhbnj67m
+    redirect_to complete_orders_path
     cart_item.destroy_all
     else
       @order = Order.new(order_params)

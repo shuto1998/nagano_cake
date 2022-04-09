@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
   def new
     @cart_items = CartItem.new
   end
@@ -13,8 +14,9 @@ class Public::CartItemsController < ApplicationController
     #@cart_item = CartItem.find_by(item_id:1)
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    # binding.pry
-    @cart_item.save
+
+    @cart_item.save!
+    #binding.pry
     redirect_to cart_items_path
   end
 
