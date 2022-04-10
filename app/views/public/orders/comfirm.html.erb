@@ -21,7 +21,8 @@
                     <% else %>
                     <%= image_tag 'no_image', size: "80x80" %>
                     <% end %>
-                    <%= cart_item.item.name %></td>
+                    <%= cart_item.item.name %>
+            </td>
             <td><%= cart_item.item.add_tax_price %></td>
             <td><%= cart_item.amount %></td>
             <td><%= cart_item.item.add_tax_price* cart_item.amount %></td>

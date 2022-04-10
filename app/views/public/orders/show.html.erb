@@ -1,2 +1,18 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<h5>注文履歴詳細</h5>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1">注文情報</div>
+    <div class="col-lg-11"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <tr><th>注文日</th><td><% @order.created_at.to_s(:datetime_jp) %></td></tr>
+        <tr><th>配送先</th><td><% @order.address%></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
