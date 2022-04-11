@@ -40,11 +40,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   root :to =>  'public/homes#top'
 
  namespace :admin do
-   get '/' => 'homes#top'
+   root :to => 'homes#top'
    resources :genres, only: [:new,:create,:index,:edit,:update]
    resources :items,only:[:new,:index,:show,:edit,:update,:create]
    resources :customers,only:[:show,:index,:edit,:update]
-   resources :orders,onky:[:show,:update,:edit]
+   resources :orders,only:[:show,:update,:edit]
   end
 
 
