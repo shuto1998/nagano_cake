@@ -1,7 +1,8 @@
 <h5>会員情報編集</h5>
 
 <%= form_with model: @customer,url:customers_path do |f| %>
- <div class="row">
+<div class="container">
+   <div class="row">
       <div class="col-lg-3">
         <p></p>
       </div>
@@ -19,6 +20,7 @@
       </div>
       <div class="col-lg-1"></div>
     </div>
+
     <div class="row">
       <div class="col-lg-3">
         <p>フリガナ</p>
@@ -37,6 +39,7 @@
       </div>
       <div class="col-lg-1"></div>
     </div>
+
     <div class="row">
       <div class="col-lg-3">
         <%= f.label :メールアドレス %>
@@ -46,9 +49,9 @@
       <div class="col-lg-3">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100%",class: "vh-40" %>
       </div>
-      <div class="col-lg-5">
-      </div>
+      <div class="col-lg-5"></div>
     </div>
+
     <div class="row">
       <div class="col-lg-3">
         <%= f.label :郵便番号 %>
@@ -58,9 +61,9 @@
       <div class="col-lg-3">
        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "w-100",class: "vh-40" %>
        </div>
-      <div class="col-lg-5">
-      </div>
+      <div class="col-lg-5"></div>
     </div>
+
     <div class="row">
       <div class="col-lg-3">
         <%= f.label :住所 %>
@@ -72,6 +75,7 @@
       </div>
       <div class="col-lg-1"></div>
     </div>
+
     <div class="row">
       <div class="col-lg-3">
         <%= f.label :電話番号 %>
@@ -84,7 +88,16 @@
       <div class="col-lg-5"></div>
     </div>
 
-     <%= f.submit '変更内容を保存' %>
-     <%= link_to "退会する", unsubscribe_path,class: 'btn btn-success' %>
-
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-3">
+       <%= f.submit '変更内容を保存',class: 'btn btn-success' %>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-3">
+      <%= link_to "退会する", unsubscribe_path,class: 'btn btn-danger' %>
+      </div>
+    </div>
     <% end %>
+    </div>
