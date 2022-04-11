@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @ordes.each do |order| %>
+    <% @orders.each do |order| %>
     <tr>
       <!--注文日-->
       <td><%= order.created_at.to_s(:datetime_jp) %></td>

@@ -1,10 +1,14 @@
 class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    @order.status = 0
+    #@order_detailss = current_cistomer.order_details
+    # @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
   end
 
   def index
-    @ordes = Order.all
+    #@orders = Order.all
+    @orders = current_customer.orders
   end
 #購入情報の入力画面を作成する
   def new
