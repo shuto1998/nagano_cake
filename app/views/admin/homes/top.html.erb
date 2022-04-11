@@ -19,7 +19,12 @@
 
           <td><%= link_to order.created_at.to_s(:datetime_jp),admin_order_path(order.id) %></td>
           <td><%= order.name%></td>
-          <td>
+          <% @total=0 %>
+          <td><% order.order_details.each do |order_detail| %>
+              <!--%= order_detail.amount %-->
+          <% @total=@total+order_detail.amount %>
+              <% end %>
+          <%= @total %>
           </td>
 
           <td></td>

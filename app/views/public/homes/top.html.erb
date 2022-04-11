@@ -11,7 +11,11 @@
         <div class="col-lg-2"><h4>商品一覧</h4></div>
         <div class="col-lg-10">
                 <% @items.each do |item| %>
+                <div>
+                <%= link_to item_path(item.id) do %>
                 <%= image_tag item.image, size: "100x100" %>
+                <% end %>
+                </div>
                 <div><%= link_to item.name, item_path(item.id) %></div>
                 <div>¥<%= item.price %></div>
                 <% end %>
