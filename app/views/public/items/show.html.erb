@@ -1,0 +1,41 @@
+<p>商品詳細</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      <% if @item.image.attached? %>
+      <%= image_tag @item.image, size: "300x300" %>
+       <% else %>
+        <%= image_tag 'no_image', size: "300x300" %>
+      <% end %>
+    </div>
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-5">
+      <%= @item.name %>
+    </div>
+    <!--<div class="row">-->
+      <div class="col-lg-5"></div>
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-5">
+         <%= @item.introduction %>
+      </div>
+    <!--</div>-->
+
+      <!--<div class="row">-->
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-5">
+        <p>￥<%= @item.add_tax_price.to_s(:dalimited) %>（税込み価格）</p>
+        </div>
+      <!--</div>-->
+      <%= form_with model: @cart_items,url:cart_items_path,method: :post do |f| %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.select :amount, *[1..10] %>
+      <%= f.submit 'カートに入れる' %>
+      <% end %>
+  </div>
+</div>
+
+

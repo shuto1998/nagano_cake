@@ -34,9 +34,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  #config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -73,4 +73,5 @@ Rails.application.configure do
   config.hosts << "0d14af39a78242f7b88dd127837b3c47.vfs.cloud9.us-east-1.amazonaws.com"
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  config.hosts << "89cb8c64a7bb443d8df0d34404308cf0.vfs.cloud9.ap-northeast-1.amazonaws.com"
 end

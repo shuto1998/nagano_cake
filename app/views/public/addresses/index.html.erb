@@ -1,0 +1,40 @@
+<h5>配送先登録/一覧</h5>
+
+<%= form_with model: @address,url:addresses_path do |f| %>
+<h5>郵便番号</h5>
+<%= f.text_field:postal_code %>
+<h5>住所</h5>
+<%= f.text_field:address %>
+<h5>宛名</h5>
+<%= f.text_field:name %>
+
+  <%= f.submit '新規登録',class: "btn btn-success" %>
+<% end %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+    <% @addresses.each do |address| %>
+      <!--新たに登録した住所を出力-->
+    <tr>
+
+       <td><%= address.postal_code %></td>
+       <td><%= address.address %></td>
+       <td><%= address.name %></td>
+       <td><%= link_to "編集する", "/addresses/#{address.id}/edit",class: "btn btn-success" %> <%= link_to "削除する", "/addresses/#{address.id}", method: :delete,class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %></td>
+
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>

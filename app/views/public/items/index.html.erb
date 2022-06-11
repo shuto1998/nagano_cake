@@ -1,0 +1,16 @@
+<h5>商品一覧</h5>
+<div class="container">
+    <div class="row">
+        <% @items.each do |item| %>
+        <div class="col-lg-3">
+            <div>
+            <%= link_to item_path(item.id) do %>
+            <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+            </div>
+            <b><%= link_to item.name, item_path(item.id) %></b>
+            <b>¥<%= item.price %></b>
+        </div>
+        <% end %>
+    </div>
+</div>
